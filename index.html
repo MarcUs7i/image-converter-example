@@ -17,19 +17,19 @@
     <form id="convert-form" class="p-4 bg-white rounded shadow-sm">
       <div class="mb-3">
         <label for="image" class="form-label">Upload Image</label>
-        <input type="file" class="form-control" id="image" name="image" required>
+        <input type="file" class="form-control" id="imageInput" name="image" required>
       </div>
 
       <div class="mb-3">
         <label for="format" class="form-label">Convert to format:</label>
-        <select id="format" class="form-select" required>
+        <select id="formatSelect" class="form-select" required>
           <option value="png">PNG</option>
           <option value="jpeg">JPEG</option>
           <option value="webp">WEBP</option>
         </select>
       </div>
 
-      <button type="submit" class="btn btn-success w-100"><i class="bi bi-arrow-down-circle"></i> Convert image</button>
+      <button type="submit" class="btn btn-success w-100"><i class="bi bi-arrow-down-circle"></i> Convert</button>
     </form>
   </div>
 </body>
