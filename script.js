@@ -7,7 +7,7 @@ document.getElementById('convertForm').addEventListener('submit', async (e) => {
     const formData = new FormData();
     formData.append('image', fileInput.files[0]);
   
-    const res = await fetch(`http://localhost:5000/convert?format=${format}`, {
+    const res = await fetch(`https://image-converter-backend.onrender.com/convert?format=${format}`, {
       method: 'POST',
       body: formData
     });
