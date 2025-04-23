@@ -7,10 +7,7 @@ const fs = require('fs');
 const app = express();
 const upload = multer({ dest: 'uploads/' });
 
-app.use(cors(
-  {
-    origin: 'https://balota-natan-utcn.github.io' // 👈 Add your GitHub Pages domain here
-  }));
+app.use(cors());
 
 app.post('/convert', upload.single('image'), async (req, res) => {
   const format = req.query.format || 'png';
@@ -29,4 +26,5 @@ app.post('/convert', upload.single('image'), async (req, res) => {
   }
 });
 
-app.listen(5000, () => console.log('Server is running on port 5000'));
+const PORT = process.env.PORT || 5000;
+app.listen(PORT, () => console.log(`Server is running on port ${PORT}`));
