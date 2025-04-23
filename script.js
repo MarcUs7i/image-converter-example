@@ -1,3 +1,10 @@
+import { loadSpinner, showSpinner, hideSpinner } from './spinner.component.js';
+
+document.addEventListener('DOMContentLoaded', async () =>
+{
+  await loadSpinner('#spinner-placeholder'); // or 'body' or wherever you want it
+});
+
 document.getElementById('convert-form').addEventListener('submit', async (e) => {
     e.preventDefault();
   
