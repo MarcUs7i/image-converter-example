@@ -1,4 +1,4 @@
-document.getElementById('convertForm').addEventListener('submit', async (e) => {
+document.getElementById('convert-form').addEventListener('submit', async (e) => {
     e.preventDefault();
   
     const fileInput = document.getElementById('imageInput');
