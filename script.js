@@ -1,4 +1,3 @@
-console.log('script loaded');
 document.getElementById('convertForm').addEventListener('submit', async (e) => {
     e.preventDefault();
   
