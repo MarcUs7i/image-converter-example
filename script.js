@@ -1,4 +1,4 @@
-import { loadSpinner, showSpinner, hideSpinner } from './spinner.component.js';
+import { loadSpinner, showSpinner, hideSpinner } from '/components/spinner.component.js';
 
 document.addEventListener('DOMContentLoaded', async () =>
 {
