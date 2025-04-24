@@ -15,7 +15,7 @@ document.getElementById('convert-form').addEventListener('submit', async (e) => 
     const formData = new FormData();
     formData.append('image', fileInput.files[0]);
   
-    const res = await fetch(`https://image-converter-backend-i6ei.onrender.com/convert?format=${format}`, {
+    const res = await fetch(`https://image-converter-backend-i6ei.onrender.com/convert?format=${format}`, {  //http://localhost:5000/convert?format=${format} for offline test
       method: 'POST',
       body: formData
     });
@@ -27,7 +27,6 @@ document.getElementById('convert-form').addEventListener('submit', async (e) => 
     a.href = url;
     a.download = `converted.${format}`;
     a.click();
-
     hideSpinner();
   });
   
