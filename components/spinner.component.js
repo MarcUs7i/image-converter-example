@@ -1,6 +1,6 @@
 export async function loadSpinner(targetSelector)
 {
-    const response = await fetch('./components/spinner.component.html');
+    const response = await fetch('./components/alert.component.html');
     const html = await response.text();
     document.querySelector(targetSelector).insertAdjacentHTML('beforeend', html);
 }
