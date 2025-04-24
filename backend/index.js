@@ -21,6 +21,11 @@ app.post('/convert', upload.single('image'), async (req, res) => {
   const inputPath = req.file.path;
   const outputPath = `${inputPath}.${format}`;
 
+  if (!req.file)
+  {
+    return res.status(400).send('No file uploaded or file too large');
+  }
+
   try {
     await sharp(inputPath).toFormat(format).toFile(outputPath);
     res.download(outputPath, `converted.${format}`, () => {
