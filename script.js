@@ -1,9 +1,12 @@
+import { loadAlert, showAlert } from './components/alert.component.js';
 import { loadSpinner, showSpinner, hideSpinner } from './components/spinner.component.js';
 
 document.addEventListener('DOMContentLoaded', async () =>
 {
   await loadSpinner('#spinner-placeholder');
 });
+
+await loadAlert();
 
 document.getElementById('convert-form').addEventListener('submit', async (e) => {
     e.preventDefault();
@@ -16,7 +19,7 @@ document.getElementById('convert-form').addEventListener('submit', async (e) => 
       const file = fileInput.files[0];
       if (file && file.size > 15 * 1024 * 1024)
       {
-        alert('File is too large! Max 15MB.');
+        showAlert('FIle is too large! Max 15MB allowed.', 'warning');
         fileInput.value = ''; // reset the input
       }
     });
