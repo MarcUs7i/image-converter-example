@@ -11,6 +11,16 @@ document.getElementById('convert-form').addEventListener('submit', async (e) => 
     showSpinner();
   
     const fileInput = document.getElementById('imageInput');
+    fileInput.addEventListener('change', () => 
+    {
+      const file = fileInput.files[0];
+      if (file && file.size > 15 * 1024 * 1024)
+      {
+        alert('File is too large! Max 15MB.');
+        fileInput.value = ''; // reset the input
+      }
+    });
+    
     const format = document.getElementById('formatSelect').value;
     const formData = new FormData();
     formData.append('image', fileInput.files[0]);
