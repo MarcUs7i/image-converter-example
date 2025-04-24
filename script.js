@@ -4,9 +4,8 @@ import { loadSpinner, showSpinner, hideSpinner } from './components/spinner.comp
 document.addEventListener('DOMContentLoaded', async () =>
 {
   await loadSpinner('#spinner-placeholder');
+  await loadAlert();
 });
-
-await loadAlert();
 
 document.getElementById('convert-form').addEventListener('submit', async (e) => {
     e.preventDefault();
