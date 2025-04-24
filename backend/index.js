@@ -11,20 +11,10 @@ app.use(cors({
   origin: ['https://balota-natan-utcn.github.io'],
 }));
 
-const upload = multer({
-  dest: 'uploads/',
-  limits: { fileSize: 15 * 1024 * 1024 } // 15 MB
-});
-
 app.post('/convert', upload.single('image'), async (req, res) => {
   const format = req.query.format || 'png';
   const inputPath = req.file.path;
   const outputPath = `${inputPath}.${format}`;
-
-  if (!req.file)
-  {
-    return res.status(400).send('No file uploaded or file too large');
-  }
 
   try {
     await sharp(inputPath).toFormat(format).toFile(outputPath);
