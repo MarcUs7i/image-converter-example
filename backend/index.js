@@ -5,10 +5,10 @@ const cors = require('cors');
 const fs = require('fs');
 
 const app = express();
-//file size limit (15 MB)
+//file size limit (10 MB)
 const upload = multer({
   dest: 'uploads/',
-  limits: { fileSize: 5 * 1024 * 1024 } // 15 MB
+  limits: { fileSize: 10 * 1024 * 1024 } // 10 MB
 });
 
 app.use(cors({
