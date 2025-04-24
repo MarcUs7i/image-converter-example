@@ -11,6 +11,11 @@ app.use(cors({
   origin: ['https://balota-natan-utcn.github.io'],
 }));
 
+const upload = multer({
+  dest: 'uploads/',
+  limits: { fileSize: 15 * 1024 * 1024 } // 15 MB
+});
+
 app.post('/convert', upload.single('image'), async (req, res) => {
   const format = req.query.format || 'png';
   const inputPath = req.file.path;
