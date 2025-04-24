@@ -7,7 +7,9 @@ const fs = require('fs');
 const app = express();
 const upload = multer({ dest: 'uploads/' });
 
-app.use(cors());
+app.use(cors({
+  origin: ['https://balota-natan-utcn.github.io'],
+}));
 
 app.post('/convert', upload.single('image'), async (req, res) => {
   const format = req.query.format || 'png';
