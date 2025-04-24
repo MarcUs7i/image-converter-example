@@ -9,10 +9,17 @@ const upload = multer({ dest: 'uploads/' });
 
 app.use(cors());
 
+const allowedFormats = ['jpeg', 'png', 'webp', 'tiff', 'avif'];
+
 app.post('/convert', upload.single('image'), async (req, res) => {
   const format = req.query.format || 'png';
   const inputPath = req.file.path;
   const outputPath = `${inputPath}.${format}`;
+
+  if (!allowedFormats.includes(format))
+  {
+    return res.status(400).send('Unsupported format');
+  }
 
   try {
     await sharp(inputPath).toFormat(format).toFile(outputPath);
