@@ -17,9 +17,9 @@ document.getElementById('convert-form').addEventListener('submit', async (e) => 
     fileInput.addEventListener('change', () => 
     {
       const file = fileInput.files[0];
-      if (file && file.size > 15 * 1024 * 1024)
+      if (file && file.size > 10 * 1024 * 1024)
       {
-        showAlert('FIle is too large! Max 15MB allowed.', 'warning');
+        showAlert('FIle is too large! Max 10MB allowed.', 'warning');
         fileInput.value = ''; // reset the input
       }
     });
