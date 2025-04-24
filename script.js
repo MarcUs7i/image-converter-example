@@ -7,6 +7,8 @@ document.addEventListener('DOMContentLoaded', async () =>
 
 document.getElementById('convert-form').addEventListener('submit', async (e) => {
     e.preventDefault();
+
+    showSpinner();
   
     const fileInput = document.getElementById('imageInput');
     const format = document.getElementById('formatSelect').value;
@@ -25,5 +27,7 @@ document.getElementById('convert-form').addEventListener('submit', async (e) => 
     a.href = url;
     a.download = `converted.${format}`;
     a.click();
+
+    hideSpinner();
   });
   
