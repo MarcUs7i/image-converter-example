@@ -14,12 +14,10 @@ document.getElementById('convert-form').addEventListener('submit', async (e) => 
     showSpinner();
   
     const fileInput = document.getElementById('imageInput');
-    fileInput.addEventListener('change', () => 
-    {
+    fileInput.addEventListener('change', () => {
       const file = fileInput.files[0];
-      if (file && file.size > 10 * 1024 * 1024)
-      {
-        showAlert('FIle is too large! Max 10MB allowed.', 'warning');
+      if (file && file.size > 5 * 1024 * 1024) {
+        alert('File is too large! Max 5MB.');
         fileInput.value = ''; // reset the input
       }
     });
@@ -42,4 +40,3 @@ document.getElementById('convert-form').addEventListener('submit', async (e) => 
     a.click();
     hideSpinner();
   });
-  
