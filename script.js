@@ -1,4 +1,4 @@
-import { loadAlert, showAlert } from './components/alert.component.js';
+//import { loadAlert, showAlert } from './components/alert.component.js';
 import { loadSpinner, showSpinner, hideSpinner } from './components/spinner.component.js';
 
 document.addEventListener('DOMContentLoaded', async () =>
@@ -6,7 +6,7 @@ document.addEventListener('DOMContentLoaded', async () =>
   await loadSpinner('#spinner-placeholder');
 });
 
-await loadAlert();
+//await loadAlert();
 
 document.getElementById('convert-form').addEventListener('submit', async (e) => {
     e.preventDefault();
