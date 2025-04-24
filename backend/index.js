@@ -5,14 +5,31 @@ const cors = require('cors');
 const fs = require('fs');
 
 const app = express();
-const upload = multer({ dest: 'uploads/' });
+//file size limit (15 MB)
+const upload = multer({
+  dest: 'uploads/',
+  limits: { fileSize: 5 * 1024 * 1024 } // 15 MB
+});
 
 app.use(cors({
   origin: ['https://balota-natan-utcn.github.io'],
 }));
 
+app.use((err, req, res, next) => {
+  if (err.code === 'LIMIT_FILE_SIZE') {
+    return res.status(413).send('File is too large. Max 15MB allowed.');
+  }
+  next(err);
+});
+
 app.post('/convert', upload.single('image'), async (req, res) => {
   const format = req.query.format || 'png';
+
+  if (!req.file)
+  {
+    return res.status(400).send('No file uploaded or file too large.');
+  }
+  
   const inputPath = req.file.path;
   const outputPath = `${inputPath}.${format}`;
 
