@@ -4,10 +4,6 @@ import { loadSpinner, showSpinner, hideSpinner } from './components/spinner.comp
 document.addEventListener('DOMContentLoaded', async () =>
 {
   await loadSpinner('#spinner-placeholder');
-});
-
-document.addEventListener('DOMContentLoaded', async () =>
-{
   await loadAlert();
 });
 
