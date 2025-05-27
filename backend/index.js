@@ -12,7 +12,7 @@ const upload = multer({
 });
 
 app.use(cors({
-  origin: ['https://balota-natan-utcn.github.io'],
+  origin: ['https://marcus7i.github.io'],
 }));
 
 app.use((err, req, res, next) => {
